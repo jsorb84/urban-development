@@ -9,7 +9,7 @@
 	let { tree } = $props<$$props>();
 </script>
 
-<ul use:treeView {...$treeView} class="bg-base-200 h-fit rounded-xl px-6 list-item py-3">
+<ul use:treeView {...$treeView} class="bg-base-200 h-fit rounded-xl px-6 py-3 max-xl:hidden">
 	{#each tree as treeItem}
 		<li class={treeItem.node.tagName == 'H2' ? 'primary' : 'secondary'}>
 			<a href={`#${treeItem.id}`} use:item {...$item} class="list-item btn-ghost p-2 rounded-xl"

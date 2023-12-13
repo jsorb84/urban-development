@@ -34,7 +34,8 @@
 				<p class="mb-5">
 					{item.metadata.description ?? 'No Post Description'}
 				</p>
-				<a href={`pages${getFileURL(name)}`} class="btn btn-primary">Read Post..</a>
+
+				<a href={`/pages${getFileURL(name)}`} class="btn btn-primary">Read Post..</a>
 			</div>
 		</div>
 	</div>
