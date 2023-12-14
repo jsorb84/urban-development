@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import CategoryList from '$lib/CategoryList/category-list.svelte';
+	import CategoryList from '$lib/components/CategoryList/category-list.svelte';
 	import type { LayoutData } from './$types';
 	export let data: LayoutData;
 </script>

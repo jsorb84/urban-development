@@ -7,7 +7,8 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [
 		vitePreprocess(),
-		mdsvex({ extensions: ['.mdx', '.md', '.svx'], layout: './src/routes/pages/docLayout.svelte' })
+
+		mdsvex({ extensions: ['.mdx', '.md', '.svx'], layout: './src/routes/pages/layout.svelte' })
 	],
 	extensions: ['.svelte', '.svx', '.md'],
 	kit: {
