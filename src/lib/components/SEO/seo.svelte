@@ -1,14 +1,22 @@
 <script lang="ts">
 	interface $$props {
 		title: string;
-		coverImage: string;
+		coverImage?: string;
 		url: URL;
 		description: string;
 		author: string;
 		base: string;
 		keywords: string;
 	}
-	let { title, base, coverImage, url, description, author, keywords } = $props<$$props>();
+	let {
+		title,
+		base,
+		coverImage = 'https://placehold.co/600x400',
+		url,
+		description,
+		author,
+		keywords
+	} = $props<$$props>();
 </script>
 
 <svelte:head>

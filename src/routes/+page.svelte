@@ -1,16 +1,24 @@
 <script lang="ts">
+	import Seo from '$lib/components/SEO/seo.svelte';
 	import { useFloatingEffect, typewriter } from '@theofficialurban/svelte-utils';
 	import { onMount } from 'svelte';
 	import { cubicOut } from 'svelte/easing';
+	import { page } from '$app/stores';
 	import { draw } from 'svelte/transition';
+	import { base } from '$app/paths';
 	const { effect, store } = useFloatingEffect({ duration: 1000 }, 5);
 	let show = $state<boolean>(false);
 	onMount(() => (show = true));
 </script>
 
-<svelte:head>
-	<title>Urban Development™ | Business Web Consulting</title>
-</svelte:head>
+<Seo
+	title={'Home'}
+	description={'Free Online Programming Notes & Guides'}
+	author={'theofficialurban'}
+	keywords={'technology, programming, coding, html, css, javascript, guides, blog, general information, web technology'}
+	url={$page.url}
+	{base}
+/>
 {#if show}
 	<center class="grid grid-flow-row place-items-center">
 		<svg use:effect={$store} width={500} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +89,7 @@
 <style>
 	@font-face {
 		font-family: Oswald Bold;
-		src: url('/Oswald/Oswald-Bold.ttf');
+		src: url('../lib/assets/Oswald/Oswald-Bold.ttf');
 	}
 
 	h1 {

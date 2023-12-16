@@ -47,7 +47,7 @@
 
 <style>
 	#main-bg {
-		background-image: url('/background-image.jpg');
+		background-image: url('$lib/assets/background-image.jpg');
 		background-size: cover;
 	}
 </style>

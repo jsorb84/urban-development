@@ -4,9 +4,12 @@
 
 @font-face {
 	font-family: Oswald Regular;
-	src: url('/Oswald/Oswald-Regular.ttf');
+	src: url('$lib/assets/Oswald/Oswald-Regular.ttf');
 }
-
+@font-face {
+	font-family: Oswald Bold;
+	src: url('$lib/assets/Oswald/Oswald-Bold.ttf');
+}
 html {
 	font-family: Oswald Regular;
 }
