@@ -1,15 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Oswald:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
+/* @font-face {
 	font-family: Oswald Regular;
 	src: url('$lib/assets/Oswald/Oswald-Regular.ttf');
 }
 @font-face {
 	font-family: Oswald Bold;
 	src: url('$lib/assets/Oswald/Oswald-Bold.ttf');
-}
+} */
 html {
-	font-family: Oswald Regular;
+	font-family: Oswald, sans-serif;
 }

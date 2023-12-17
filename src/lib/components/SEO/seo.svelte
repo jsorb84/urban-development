@@ -1,21 +1,24 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+	import { page } from '$app/stores';
 	interface $$props {
-		title: string;
+		title?: string;
 		coverImage?: string;
-		url: URL;
-		description: string;
-		author: string;
-		base: string;
-		keywords: string;
+		url?: string;
+		description?: string;
+		author?: string;
+		type?: 'article' | 'website';
+		base?: string;
+		keywords?: string;
 	}
 	let {
-		title,
-		base,
+		title = 'Home',
 		coverImage = 'https://placehold.co/600x400',
 		url,
 		description,
-		author,
-		keywords
+		type = 'website',
+		author = 'theofficialurban (Josh)',
+		keywords = 'technology, guides, programming resources, svelte, javascript'
 	} = $props<$$props>();
 </script>
 
@@ -29,21 +32,25 @@
 	/>
 	<meta property="og:image" content={coverImage} />
 	<meta property="og:title" content={`${title} || Urban Development™`} />
-	<meta property="og:url" content={`${url}`} />
+	<meta property="og:url" content={url} />
 	<meta name="description" content={description} />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:domain" content={`${base}`} />
-	<meta property="twitter:url" content={url.toString()} />
+	<meta property="twitter:domain" content={base} />
+	<meta property="twitter:url" content={url} />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={coverImage} />
 	<meta property="og:description" content={`${description} - By ${author}`} />
 	<meta property="og:site_name" content={`Urban Development™`} />
-	<meta property="og:type" content="article" />
-	<meta property="article:author" content={author} />
-	<meta property="article:publisher" content={'Urban Development™'} />
-	<meta property="article:tag" content={keywords} />
+	<meta property="og:type" content={type} />
+	{#if type == 'article'}
+		<meta property="article:author" content={author} />
+		<meta property="article:publisher" content={'Urban Development™'} />
+		<meta property="article:tag" content={keywords} />
+	{/if}
 	<meta name="keywords" content={keywords} />
 	<meta name="author" content={author} />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<slot />
 </svelte:head>

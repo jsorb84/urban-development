@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import Prism from 'prismjs';
-	import { onMount } from 'svelte';
 	import 'prismjs/components/prism-typescript.js';
+	import 'prismjs/components/prism-jsx.js';
 	interface $$props {
 		text: string;
 		lang: string;
@@ -12,4 +11,4 @@
 	const highlighted = Prism.highlight(text, Prism.languages[lang], lang);
 </script>
 
-<pre id="codeBlock"><code>{@html highlighted}</code></pre>
+<pre id="codeBlock" class="mockup-code"><code>{@html highlighted}</code></pre>

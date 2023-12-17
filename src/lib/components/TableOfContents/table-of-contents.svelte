@@ -35,12 +35,8 @@
 </ul>
 
 <style>
-	@font-face {
-		font-family: Oswald Bold;
-		src: url('/Oswald/Oswald-Bold.ttf');
-	}
 	ul {
-		font-family: Oswald Bold;
+		font-family: Oswald, sans-serif;
 		@apply text-xl;
 	}
 	.primary {

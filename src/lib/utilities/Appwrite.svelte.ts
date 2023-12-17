@@ -24,6 +24,9 @@ export default class Appwrite {
 	get pages() {
 		return this.files;
 	}
+	set loading(l: boolean) {
+		this.isLoading = l;
+	}
 	get loading() {
 		return this.isLoading;
 	}

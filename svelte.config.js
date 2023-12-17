@@ -8,12 +8,11 @@ const config = {
 	extensions: ['.svelte'],
 
 	kit: {
+		csrf: {
+			checkOrigin: false
+		},
 		files: {
 			assets: './static'
-		},
-		paths: {
-			assets:
-				'https://cloud.appwrite.io/v1/storage/buckets/pages/files?project=657df22a1439a12f822a'
 		},
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.

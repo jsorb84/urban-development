@@ -6,29 +6,23 @@
 	import SvelteMarkdown, { type Renderers } from 'svelte-markdown';
 	import Code from '$lib/components/Code/code.svelte';
 	import '$lib/assets/prism.css';
-	const postId = $page.params.postId;
-	const client = new Appwrite();
-	let raw = $state<string>('');
-	const loadFile = async () => {
-		const req = await fetch(client.getFile($page.data.category.slug, $page.params.postId));
-		if (req.status !== 200) return null;
-		raw = await req.text();
-	};
+	import CodeSpan from '$lib/components/Code/code-span.svelte';
+	import type { PageData } from './$types';
+	let { data } = $props<{ data: PageData }>();
+	const raw = data.text;
 	const renderers: Partial<Renderers> = {
-		code: Code
+		code: Code,
+		codespan: CodeSpan
 	};
 	const prevPage = $page.state.previousUrl;
-	$effect(() => {
-		loadFile();
-	});
 </script>
 
 {#if raw !== ''}
 	{@const frontmatter = fm(raw)}
-	<Markdown frontmatter={frontmatter.attributes as Record<string, string>}>
-		<svelte:fragment slot="backBtn">
-			<a class="xl:hidden py-2 btn btn-sm" href={prevPage}>👈 Go Back</a>
-		</svelte:fragment>
+	<Markdown
+		backHref={prevPage ?? '/'}
+		frontmatter={frontmatter.attributes as Record<string, string>}
+	>
 		<SvelteMarkdown source={frontmatter.body} {renderers} />
 	</Markdown>
 {:else}
