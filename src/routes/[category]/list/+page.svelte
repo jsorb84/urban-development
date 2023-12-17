@@ -5,13 +5,16 @@
 	import Loading from '$lib/components/Loading/loading.svelte';
 	import type { PageData } from './$types';
 	let { data } = $props<{ data: PageData }>();
-	const filesProm = data.files;
+	let filesProm = $state(data.files);
 	beforeNavigate((n) => {
 		const fromUrl = n.from?.url.href;
 		const toUrl = n.to?.url.pathname;
 		if (fromUrl && toUrl) {
 			pushState(toUrl, { previousUrl: fromUrl });
 		}
+	});
+	$effect(() => {
+		filesProm = data.files;
 	});
 </script>
 
