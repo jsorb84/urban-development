@@ -18,6 +18,7 @@
 	author={$page.data.metadata?.author ?? 'theofficialurban (Josh)'}
 	keywords={$page.data.metadata?.keywords ??
 		'technology, javascript, programming, guides, notes, resources'}
+	coverImage={$page.data.metadata?.coverImage ?? 'https://placehold.co/600x400'}
 	url={$page.data.metadata?.url ?? $page.url.href}
 ></Seo>
 <div id="main-bg" class="p-10 h-full w-screen fixed overflow-y-scroll">

@@ -25,7 +25,9 @@
 				href={`#${treeItem.id}`}
 				use:item
 				{...$item}
-				class={`list-item  btn-ghost p-2 rounded-xl z-10`}># {treeItem.title}</a
+				class:font-bold={level == 1}
+				class:text-xl={level == 1}
+				class={`list-item  btn-ghost p-2 rounded-xl z-10`}>{treeItem.title}</a
 			>
 			{#if treeItem.children && treeItem.children.length > 0}
 				<svelte:self {active} level={level + 1} tree={treeItem.children} />
