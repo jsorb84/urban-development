@@ -22,15 +22,27 @@ const categories: Map<string, Category> = new Map<string, Category>([
 		}
 	],
 	[
-		'pages',
+		'notes',
 		{
 			name: 'Notes & Guides',
-			slug: 'pages',
-			url: '/pages/list',
-			description: 'Programming Guides & Notes',
+			slug: 'notes',
+			url: '/notes/list',
+			description: 'Programming Guides & Personal Notes',
 			items: [],
 			keywords:
 				'technology, programming, coding, html, css, javascript, guides, blog, general information, web technology'
+		}
+	],
+	[
+		'tutorials',
+		{
+			name: 'Tutorials',
+			slug: 'tutorials',
+			url: '/tutorials/list',
+			description: 'Programming Tutorials and How-To Guides for Svelte and other frameworks',
+			items: [],
+			keywords:
+				'svelte, how-to-guide, tutorials, javascript, packages, frameworks, informational guides'
 		}
 	]
 ]);

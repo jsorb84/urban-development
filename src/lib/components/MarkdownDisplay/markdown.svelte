@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
+	import { fly, slide } from 'svelte/transition';
 	import TableOfContents from '../TableOfContents/table-of-contents.svelte';
-	import { createTableOfContents } from '@melt-ui/svelte';
+	import { createTableOfContents, createCollapsible } from '@melt-ui/svelte';
 	import Seo from '../SEO/seo.svelte';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
@@ -11,7 +11,10 @@
 		backHref: string;
 	}
 	let { frontmatter, backHref } = $props<$$props>();
-
+	const {
+		elements: { root, trigger, content },
+		states: { open }
+	} = createCollapsible();
 	const {
 		states: { activeHeadingIdxs, headingsTree }
 	} = createTableOfContents({ selector: '#body' });
@@ -32,9 +35,20 @@
 <div class="grid grid-flow-row">
 	<div transition:slide class="xl:grid xl:grid-cols-4 h-full">
 		<a class="xl:hidden py-2 btn btn-sm" href={backHref}>👈 Go Back</a>
-		<div class="max-xl:hidden xl:fixed xl:col-start-1 xl:col-end-2 top-20 grid grid-flow-row">
-			<span class="py-10"><a class="btn btn-sm btn-info fixed" href={backHref}>👈 Go Back</a></span>
-			<TableOfContents active={activeHeadingIdxs} level={1} tree={$headingsTree} />
+		<div class="max-xl:hidden xl:fixed xl:col-start-1 xl:col-end-2 grid grid-flow-row">
+			<span class="py-10">
+				<a class="btn btn-sm btn-info fixed" href={backHref}>👈 Go Back</a>
+			</span>
+			<div use:root {...$root}>
+				<button class=" btn btn-sm btn-info" use:trigger {...$trigger}
+					>{$open ? 'Close' : 'Open'} ToC</button
+				>
+				{#if $open}
+					<div transition:fly={{ x: -20 }}>
+						<TableOfContents active={activeHeadingIdxs} level={1} tree={$headingsTree} />
+					</div>
+				{/if}
+			</div>
 		</div>
 		<div class="xl:col-start-2 xl:col-end-5 card bg-base-200 min-w-fit prose rounded-2xl z-10">
 			{#if frontmatter.coverImage}

@@ -11,4 +11,4 @@
 	const highlighted = Prism.highlight(text, Prism.languages[lang], lang);
 </script>
 
-<pre id="codeBlock" class="mockup-code"><code>{@html highlighted}</code></pre>
+<pre id="codeBlock" class="mockup-code bg-base-300"><code>{@html highlighted}</code></pre>

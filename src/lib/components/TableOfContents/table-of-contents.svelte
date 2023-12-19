@@ -4,6 +4,7 @@
 	const {
 		elements: { tree: treeView, item, group }
 	} = createTreeView();
+
 	interface $$props {
 		tree: TableOfContentsItem[];
 		active: Writable<number[]>;
@@ -16,7 +17,7 @@
 	use:treeView
 	data-level={level.toString()}
 	{...$treeView}
-	class="bg-base-200 max-h-[400px] data-[level='1']:overflow-y-scroll rounded-xl px-6 py-3"
+	class="bg-base-200 max-h-[300px] max-w-[275px] data-[level='1']:overflow-y-scroll rounded-xl px-6 py-3"
 >
 	{#each tree as treeItem}
 		<li class={treeItem.node.tagName == 'H2' ? 'primary' : 'secondary'}>
