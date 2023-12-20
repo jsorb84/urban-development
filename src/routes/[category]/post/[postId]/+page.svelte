@@ -8,11 +8,13 @@
 	import '$lib/assets/prism.css';
 	import CodeSpan from '$lib/components/Code/code-span.svelte';
 	import type { PageData } from './$types';
+	import Heading from '$lib/components/Heading/heading.svelte';
 	let { data } = $props<{ data: PageData }>();
 	const raw = data.text;
 	const renderers: Partial<Renderers> = {
 		code: Code,
-		codespan: CodeSpan
+		codespan: CodeSpan,
+		heading: Heading
 	};
 	const prevPage = $page.state.previousUrl;
 </script>

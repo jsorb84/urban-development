@@ -10,7 +10,10 @@
 </script>
 
 <div {...restProps}>
-	<div class="card bg-base-200 min-w-full prose rounded-2xl z-10">
+	<div
+		id="main"
+		class="card prose prose-p:py-0 prose-p:m-1 prose-headings:m-1 bg-base-200 min-w-full rounded-2xl z-10"
+	>
 		{#if frontmatter.coverImage}
 			<figure>
 				<img class="w-full" src={frontmatter.coverImage} alt="Shoes" />

@@ -23,6 +23,6 @@ export default {
 
 	plugins: [require('@tailwindcss/typography'), require('daisyui')],
 	daisyui: {
-		themes: ['light', 'dark', 'cupcake', 'luxury', 'sunset']
+		themes: ['dark', 'luxury', 'sunset', 'night', 'synthwave', 'cyberpunk', 'dracula']
 	}
 };
