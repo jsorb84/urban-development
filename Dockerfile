@@ -4,6 +4,7 @@ FROM node:20-alpine AS build
 WORKDIR /app
 COPY package.json ./
 COPY pnpm-lock.yaml ./
+COPY .npmrc ./
 ENV PUBLIC_ENDPOINT="https://api.officialurban.xyz/v1"
 ENV PUBLIC_PROJECT='657df22a1439a12f822a'
 RUN npm i -g pnpm
