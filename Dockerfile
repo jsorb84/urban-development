@@ -7,6 +7,8 @@ COPY pnpm-lock.yaml ./
 COPY .npmrc ./
 ENV PUBLIC_ENDPOINT="https://api.officialurban.xyz/v1"
 ENV PUBLIC_PROJECT='657df22a1439a12f822a'
+ARG GITHUB_TOKEN
+ENV NODE_AUTH_TOKEN=$GITHUB_TOKEN
 RUN npm i -g pnpm
 RUN pnpm i
 COPY . ./

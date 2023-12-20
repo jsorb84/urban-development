@@ -1,7 +1,7 @@
 name: 'Publish to Heroku' #set whatevername you want to your github job
 on:
   push:
-    branches: [main,master]
+    branches: [main, master]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,19 +11,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          registry-url: https://npm.pkg.github.com
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
-        id: heroku
-        uses: jctaveras/heroku-deploy@v1.0.0  # use the latest version of the action
+        uses: gonuit/heroku-docker-deploy@v1.3.3 # use the latest version of the action
         with:
           email: ${{ secrets.HEROKU_EMAIL }} # your heroku email
-          api_key: ${{ secrets.HEROKU_API_KEY }} # your  heroku api key
-          app_name: ${{ secrets.HEROKU_APP_NAME }} # you aplication name
-          dockerfile: . # set the path to the folder wher the Dokerfile is located
-          options: '--build-args TEST1=val'
-        
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }} # your  heroku api key
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }} # you aplication name
+          dockerfile_directory: ./ # set the path to the folder wher the Dokerfile is located
+          dockerfile_name: Dockerfile
+          docker_options: --build-arg GITHUB_KEY=${{secrets.GITHUB_TOKEN}}
