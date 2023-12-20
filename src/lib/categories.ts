@@ -44,6 +44,17 @@ const categories: Map<string, Category> = new Map<string, Category>([
 			keywords:
 				'svelte, how-to-guide, tutorials, javascript, packages, frameworks, informational guides'
 		}
+	],
+	[
+		'packages',
+		{
+			name: 'Packages',
+			slug: 'packages',
+			url: '/packages/list',
+			description: 'Programming Resources, Packages, and More',
+			items: [],
+			keywords: 'npm, pnpm, packages, free, resources, javascript, svelte, typescript'
+		}
 	]
 ]);
 

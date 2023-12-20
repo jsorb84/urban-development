@@ -1,12 +1,10 @@
 import { capitalize } from 'lodash-es';
 import type { PageLoad } from './$types';
-import type { Models } from 'appwrite';
+import Appwrite from '$lib/utilities/Appwrite.svelte';
 
-export const load = (async ({ params: { category }, url, fetch }) => {
-	const req = await fetch(
-		`https://cloud.appwrite.io/v1/storage/buckets/${category}/files?project=657df22a1439a12f822a`
-	);
-	const files = req.json() as Promise<Models.FileList>;
+export const load = (async ({ params: { category }, url }) => {
+	const client = new Appwrite();
+	const files = client.storage.listFiles(category);
 	return {
 		files,
 		metadata: {

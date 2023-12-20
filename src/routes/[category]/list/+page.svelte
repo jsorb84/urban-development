@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { beforeNavigate, pushState } from '$app/navigation';
 	import Loading from '$lib/components/Loading/loading.svelte';
+	import { Modal } from '@theofficialurban/svelte-utils';
 	import type { PageData } from './$types';
 	let { data } = $props<{ data: PageData }>();
 	let filesProm = $state(data.files);

@@ -12,8 +12,8 @@ dependencies:
     specifier: ^1.2.8
     version: 1.2.8
   '@theofficialurban/svelte-utils':
-    specifier: 1.1.2
-    version: 1.1.2(@melt-ui/svelte@0.65.0)(svelte@5.0.0-next.20)
+    specifier: 1.2.0
+    version: 1.2.0(@melt-ui/svelte@0.65.0)(svelte@5.0.0-next.20)
   appwrite:
     specifier: ^13.0.1
     version: 13.0.1
@@ -766,8 +766,8 @@ packages:
       tailwindcss: 3.3.6
     dev: true
 
-  /@theofficialurban/svelte-utils@1.1.2(@melt-ui/svelte@0.65.0)(svelte@5.0.0-next.20):
-    resolution: {integrity: sha512-EfMXFfEA0mDaCYsNOvVdy4ZgPwt35IPtU1aMmNmf2ondOQRNx9JLJJR/7plGClS0EuUOX9jYFCOATbkWy1Ndow==, tarball: https://npm.pkg.github.com/download/@theofficialurban/svelte-utils/1.1.2/0e2c0df2110cb02d61034e70669491bcc0baecea}
+  /@theofficialurban/svelte-utils@1.2.0(@melt-ui/svelte@0.65.0)(svelte@5.0.0-next.20):
+    resolution: {integrity: sha512-WzecG2PKtx7FH9FmM9C6FxxzKfe24s+iuWWLFGYFg+ejYI12nqfNh+4GmSzx8ztdiUnl5wNzq9sHKswvePqXbw==, tarball: https://npm.pkg.github.com/download/@theofficialurban/svelte-utils/1.2.0/8df10dee4006f3685e4b6cddd2982519767284db}
     peerDependencies:
       '@melt-ui/svelte': ^0.65.0
       svelte: ^5.0.0-next.8
