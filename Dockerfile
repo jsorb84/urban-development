@@ -10,8 +10,10 @@ ENV PUBLIC_PROJECT='657df22a1439a12f822a'
 ARG GITHUB_TOKEN
 ENV NODE_AUTH_TOKEN=$GITHUB_TOKEN
 RUN npm i -g pnpm
+RUN pnpm config set @theofficialurban:registry https://npm.pkg.github.com
 RUN pnpm i
 COPY . ./
+RUN pnpm run check
 RUN pnpm run build
 RUN pnpm prune --production
 EXPOSE 3000:3000

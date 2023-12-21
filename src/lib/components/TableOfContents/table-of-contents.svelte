@@ -17,7 +17,7 @@
 	use:treeView
 	data-level={level.toString()}
 	{...$treeView}
-	class="bg-base-200 max-h-[350px] max-w-[250px] data-[level='1']:overflow-y-scroll rounded-xl px-4 py-1"
+	class="bg-base-200 max-h-[350px] max-w-[200px] data-[level='1']:overflow-y-scroll rounded-xl px-4 py-1"
 >
 	{#each tree as treeItem}
 		<li class={treeItem.node.tagName == 'H2' ? 'primary' : 'secondary'}>
@@ -27,7 +27,6 @@
 				use:item
 				{...$item}
 				class:font-bold={level == 1}
-				class:text-xl={level == 1}
 				class={`list-item  btn-ghost p-2 rounded-xl z-10`}>{treeItem.title}</a
 			>
 			{#if treeItem.children && treeItem.children.length > 0}

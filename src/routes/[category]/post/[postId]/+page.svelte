@@ -9,6 +9,7 @@
 	import CodeSpan from '$lib/components/Code/code-span.svelte';
 	import type { PageData } from './$types';
 	import Heading from '$lib/components/Heading/heading.svelte';
+	import TableOfContentsTwo from '$lib/components/TableOfContents/table-of-contents-two.svelte';
 	let { data } = $props<{ data: PageData }>();
 	const raw = data.text;
 	const renderers: Partial<Renderers> = {
@@ -21,12 +22,18 @@
 
 {#if raw !== ''}
 	{@const frontmatter = fm(raw)}
-	<Markdown
-		backHref={prevPage ?? '/'}
-		frontmatter={frontmatter.attributes as Record<string, string>}
-	>
-		<SvelteMarkdown source={frontmatter.body} {renderers} />
-	</Markdown>
+
+	<TableOfContentsTwo options={{ selector: '#body' }} cOptions={{ defaultOpen: true }}>
+		<svelte:fragment slot="backButton">
+			<a href={prevPage ?? '/'} class="btn btn-error">❌</a>
+		</svelte:fragment>
+		<Markdown
+			backHref={prevPage ?? '/'}
+			frontmatter={frontmatter.attributes as Record<string, string>}
+		>
+			<SvelteMarkdown source={frontmatter.body} {renderers} />
+		</Markdown>
+	</TableOfContentsTwo>
 {:else}
 	<span class="loading loading-bars loading-lg" />
 {/if}

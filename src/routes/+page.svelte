@@ -12,7 +12,7 @@
 	<center class="grid grid-flow-row place-items-center">
 		<HomeGraphic --color="#e60b09" />
 		<h1 class="text-8xl" style="">
-			<b transition:typewriter={{ speed: 1 }}>Urban Development™</b>
+			<b data-testid="ud-text" transition:typewriter={{ speed: 1 }}>Urban Development™</b>
 		</h1>
 	</center>
 {/if}
