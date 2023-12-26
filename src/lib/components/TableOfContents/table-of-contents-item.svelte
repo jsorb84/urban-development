@@ -14,6 +14,7 @@
 		active: Writable<number[]>;
 	}
 	let { item, active, treeItem, level } = $props<$$props>();
+
 	const {
 		elements: { item: ddItem, trigger },
 		states: { open }
@@ -29,7 +30,7 @@
 			class:bg-base-300={$open}
 			class:bg-base-200={!$open}
 			class:btn-disabled={treeItem.children?.length == 0}
-			class="btn bg-opacity-80 btn-outline h-fit w-full z-20 text-xl"
+			class="btn bg-opacity-80 h-fit w-full z-20 text-xl"
 		>
 			<span class="primary">{treeItem.title}</span>
 		</a>
@@ -49,7 +50,7 @@
 	<ul class="px-2 py-1">
 		<li use:ddItem {...$ddItem} class="">
 			<a href={`#${treeItem.id}`} class="text-md btn btn-ghost"
-				><span class="px-1">#</span> <span class="secondary">{treeItem.title}</span></a
+				><span class="secondary">{treeItem.title}</span></a
 			>
 			{#if treeItem.children && treeItem.children.length}
 				{#each treeItem.children as ti}
@@ -60,7 +61,7 @@
 	</ul>
 {/if}
 
-<style>
+<style lang="postcss">
 	.primary {
 		@apply text-transparent bg-clip-text bg-gradient-to-r from-[#0061ff] to-[#60efff];
 	}

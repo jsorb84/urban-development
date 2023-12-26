@@ -36,7 +36,7 @@
 	{/each}
 </ul>
 
-<style>
+<style lang="postcss">
 	ul {
 		font-family: Oswald, sans-serif;
 		scrollbar-width: none;

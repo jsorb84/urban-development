@@ -26,7 +26,7 @@
 	{@render children()}
 </button>
 
-<style>
+<style lang="postcss">
 	button {
 		@apply bg-[var(--bg)] hover:bg-[var(--bg)] data-[state=on]:bg-[var(--bgOn)];
 	}

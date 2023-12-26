@@ -23,7 +23,7 @@
 	} = createCollapsible(cOptions);
 </script>
 
-<div class="fixed flex gap-3">
+<div data-menu={$open} class="fixed flex data-[menu=false]:flex-col gap-3">
 	<slot name="backButton" />
 	<button class="btn max-xl:hidden" use:trigger {...$trigger} disabled={$headingsTree.length == 0}>
 		{#if !$open}
@@ -66,22 +66,25 @@
 	</button>
 </div>
 
-<div
-	use:root
-	{...$root}
-	id="toc"
-	class="fixed max-xl:hidden mt-14 w-[250px] max-h-[400px] overflow-y-scroll rounded-lg bordered"
->
-	{#if $open && $headingsTree.length}
-		<div use:content {...$content} transition:fly={{ x: -20 }} class=" p-4">
+{#if $open && $headingsTree.length}
+	<div
+		transition:fly={{ x: -20 }}
+		use:root
+		{...$root}
+		id="toc"
+		class="fixed max-xl:hidden mt-14 w-[250px] max-h-[400px] bg-base-100 overflow-y-scroll rounded-lg bordered"
+	>
+		<div use:content {...$content} class=" p-6">
+			<h3 class="text-xl">📑 Table of Contents</h3>
+			<span class="divider p-0" />
 			{#each $headingsTree as treeItem}
 				<TableOfContentsItem {treeItem} {item} active={activeHeadingIdxs} level={1} />
 			{/each}
 		</div>
-	{/if}
-</div>
+	</div>
+{/if}
 
-<slot />
+<slot open={$open} />
 
 <style>
 	#toc::-webkit-scrollbar {

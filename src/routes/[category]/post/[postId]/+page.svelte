@@ -23,11 +23,12 @@
 {#if raw !== ''}
 	{@const frontmatter = fm(raw)}
 
-	<TableOfContentsTwo options={{ selector: '#body' }} cOptions={{ defaultOpen: true }}>
+	<TableOfContentsTwo options={{ selector: '#body' }} cOptions={{ defaultOpen: true }} let:open>
 		<svelte:fragment slot="backButton">
 			<a href={prevPage ?? '/'} class="btn btn-error">❌</a>
 		</svelte:fragment>
 		<Markdown
+			menuOpen={open}
 			backHref={prevPage ?? '/'}
 			frontmatter={frontmatter.attributes as Record<string, string>}
 		>

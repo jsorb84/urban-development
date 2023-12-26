@@ -17,7 +17,7 @@
 	</center>
 {/if}
 
-<style>
+<style lang="postcss">
 	h1 {
 		font-size: 72px;
 		stroke: blue;

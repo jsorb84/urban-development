@@ -43,7 +43,7 @@
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	.card-title {
 		@apply text-transparent bg-clip-text bg-gradient-to-r from-[#0061ff] to-[#60efff];
 	}
